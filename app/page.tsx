@@ -40,12 +40,10 @@ export default function HomePage() {
   const [activeRegion, setActiveRegion] = useState("all");
 
   // Exclusive portfolio properties for the explore grid
-  // Excludes the 6 properties in Rotating3DCarousel so that every image on the website is strictly unique
+  // Strictly includes the 9 distinct luxury portfolio estates (lux-add-01 to lux-add-09)
+  // with ZERO visual or image overlap with the 3D rotunda above
   const exploreProperties = useMemo(() => {
-    return propertiesData.filter(
-      (p) =>
-        !["lux-user-01", "lux-user-02", "lux-user-03", "lux-user-04", "lux-mansion-01", "lux-mansion-02"].includes(p.id)
-    );
+    return propertiesData.filter((p) => p.id.startsWith("lux-add-"));
   }, []);
 
   // Filtered properties

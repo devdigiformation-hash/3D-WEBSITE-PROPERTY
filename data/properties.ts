@@ -408,11 +408,11 @@ export const propertiesData: Property[] = [
       parkingSpaces: 2,
     },
     isUserSuppliedImage: true,
-    coverImage: "/images/properties/user-property-4.jpg",
+    coverImage: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1600&q=85",
     galleryImages: [
-      "/images/properties/user-property-4.jpg",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1600&q=85",
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=85",
     ],
     description: "Extending across an expansive lateral footprint, this bespoke residence provides direct views across the private gardens of Trevor Square. Moments from Harrods and Hyde Park, the residence provides 24-hour uniformed concierge, dual primary suites with dressing rooms, and a bespoke champagne bar.",
     highlights: [
