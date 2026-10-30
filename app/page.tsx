@@ -10,7 +10,6 @@ import { Navbar } from "@/components/navigation/Navbar";
 import { HeroVideoSection } from "@/components/hero/HeroVideoSection";
 import { SearchFilterBar } from "@/components/search/SearchFilterBar";
 import { Rotating3DFrameHero } from "@/components/carousel3d/Rotating3DFrameHero";
-import { FeaturedProperties } from "@/components/properties/FeaturedProperties";
 import { Rotating3DCarousel } from "@/components/carousel3d/Rotating3DCarousel";
 import { ExplorePropertiesGrid } from "@/components/properties/ExplorePropertiesGrid";
 import { DevelopmentsSection } from "@/components/sections/DevelopmentsSection";
@@ -41,13 +40,24 @@ export default function HomePage() {
   // Region quick filter
   const [activeRegion, setActiveRegion] = useState("all");
 
+  // Exclusive portfolio properties for the explore grid
+  // Excludes the 3 flagship hero properties and the 6 3D carousel properties
+  // ensuring every single image on the page is 100% unique and never duplicated
+  const exploreProperties = useMemo(() => {
+    return propertiesData.filter(
+      (p) =>
+        !["lux-user-alpine", "lux-user-sunset", "lux-user-solaria"].includes(p.id) &&
+        !["lux-user-01", "lux-user-02", "lux-user-03", "lux-user-04", "lux-mansion-01", "lux-mansion-02"].includes(p.id)
+    );
+  }, []);
+
   // Filtered properties
   const filteredProperties = useMemo(() => {
-    return filterProperties(propertiesData, {
+    return filterProperties(exploreProperties, {
       ...filters,
       location: activeRegion !== "all" ? activeRegion : filters.location,
     });
-  }, [filters, activeRegion]);
+  }, [exploreProperties, filters, activeRegion]);
 
   const handleRegionChange = (region: string) => {
     setActiveRegion(region);
@@ -99,13 +109,7 @@ export default function HomePage() {
           onSelectProperty={setSelectedProperty}
         />
 
-        {/* 4. Featured Properties — user uploaded images appear first */}
-        <FeaturedProperties
-          properties={propertiesData}
-          onSelectProperty={setSelectedProperty}
-        />
-
-        {/* 5. Rotating 3D property frame / gallery */}
+        {/* 4. Rotating 3D property frame / gallery */}
         <Rotating3DCarousel
           properties={propertiesData}
           onSelect={setSelectedProperty}

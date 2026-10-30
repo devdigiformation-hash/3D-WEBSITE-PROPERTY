@@ -20,6 +20,7 @@ const regions = [
   { id: "Scotland", label: "Edinburgh & Scotland" },
   { id: "North West", label: "Manchester & North" },
   { id: "South West", label: "Sandbanks & Coast" },
+  { id: "Midlands", label: "Central & Midlands" },
 ];
 
 export const ExplorePropertiesGrid: React.FC<ExplorePropertiesGridProps> = ({

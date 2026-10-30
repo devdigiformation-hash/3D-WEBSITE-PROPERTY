@@ -31,7 +31,7 @@ export const developmentsData: Development[] = [
       "Private Screening Room",
       "Biometric Valet Parking",
     ],
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=85",
+    image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1600&q=85",
     status: "Off-Plan Launch",
   },
   {
@@ -51,7 +51,7 @@ export const developmentsData: Development[] = [
       "Executive Boardrooms & Co-Working",
       "Pet Concierge & Hydro-Spa",
     ],
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85",
+    image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=1600&q=85",
     status: "Under Construction",
   },
   {
@@ -71,7 +71,7 @@ export const developmentsData: Development[] = [
       "Equestrian Stables & Bridleways",
       "Farm-to-Table Private Dining Room",
     ],
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85",
+    image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=85",
     status: "Off-Plan Launch",
   },
 ];

@@ -46,16 +46,14 @@ export const Rotating3DFrameHero: React.FC<Rotating3DFrameHeroProps> = ({
     },
   ];
 
-  // Map the 3 user flagship properties into a balanced 6-item symmetrical 3D rotunda orbit
-  // (identical architecture, smoothness, and geometry to the Curated 3D Property Rotunda)
+  // Map the 3 unique flagship properties into a balanced 3-item 3D rotunda orbit
+  // Every card is strictly unique with no duplication
   const orbitItems = useMemo(() => {
-    const flagship = properties.slice(0, 3);
-    if (flagship.length === 0) return [];
-    return [...flagship, ...flagship];
+    return properties.slice(0, 3);
   }, [properties]);
 
-  const itemCount = orbitItems.length || 6;
-  const angleStep = 360 / itemCount; // 60 degrees per card
+  const itemCount = orbitItems.length || 3;
+  const angleStep = 360 / itemCount; // 120 degrees per card
 
   const [rotationAngle, setRotationAngle] = useState(0);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
@@ -64,17 +62,17 @@ export const Rotating3DFrameHero: React.FC<Rotating3DFrameHeroProps> = ({
   const [touchDelta, setTouchDelta] = useState(0);
   const animFrameRef = useRef<number | null>(null);
 
-  // Responsive radius calculation matching the 3D Rotunda geometry
-  const [radius, setRadius] = useState(420);
+  // Responsive radius calculation for 3-item spatial 3D orbit
+  const [radius, setRadius] = useState(360);
 
   useEffect(() => {
     const updateRadius = () => {
       if (window.innerWidth < 640) {
-        setRadius(260); // Mobile radius
+        setRadius(210); // Mobile radius
       } else if (window.innerWidth < 1024) {
-        setRadius(340); // Tablet radius
+        setRadius(280); // Tablet radius
       } else {
-        setRadius(420); // Desktop luxury radius
+        setRadius(360); // Desktop luxury radius
       }
     };
 
