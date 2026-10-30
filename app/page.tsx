@@ -9,7 +9,6 @@ import { Property, PropertyFilterState } from "@/types/property";
 import { Navbar } from "@/components/navigation/Navbar";
 import { HeroVideoSection } from "@/components/hero/HeroVideoSection";
 import { SearchFilterBar } from "@/components/search/SearchFilterBar";
-import { Rotating3DFrameHero } from "@/components/carousel3d/Rotating3DFrameHero";
 import { Rotating3DCarousel } from "@/components/carousel3d/Rotating3DCarousel";
 import { ExplorePropertiesGrid } from "@/components/properties/ExplorePropertiesGrid";
 import { DevelopmentsSection } from "@/components/sections/DevelopmentsSection";
@@ -41,12 +40,10 @@ export default function HomePage() {
   const [activeRegion, setActiveRegion] = useState("all");
 
   // Exclusive portfolio properties for the explore grid
-  // Excludes the 3 flagship hero properties and the 6 3D carousel properties
-  // ensuring every single image on the page is 100% unique and never duplicated
+  // Excludes the 6 properties in Rotating3DCarousel so that every image on the website is strictly unique
   const exploreProperties = useMemo(() => {
     return propertiesData.filter(
       (p) =>
-        !["lux-user-alpine", "lux-user-sunset", "lux-user-solaria"].includes(p.id) &&
         !["lux-user-01", "lux-user-02", "lux-user-03", "lux-user-04", "lux-mansion-01", "lux-mansion-02"].includes(p.id)
     );
   }, []);
@@ -103,13 +100,7 @@ export default function HomePage() {
           totalResults={filteredProperties.length}
         />
 
-        {/* 3. FRONT ROTATING 3D FRAME (USER SUPPLIED IMAGES, GLASS CARDS, IPHONE COPYWRITING) */}
-        <Rotating3DFrameHero
-          properties={propertiesData}
-          onSelectProperty={setSelectedProperty}
-        />
-
-        {/* 4. Rotating 3D property frame / gallery */}
+        {/* 3. Rotating 3D property frame / gallery */}
         <Rotating3DCarousel
           properties={propertiesData}
           onSelect={setSelectedProperty}
